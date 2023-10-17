@@ -76,14 +76,14 @@ def deleteNode(root, k):
         del succ
         return root
 
-def find(root,key):
+def findbinarysearch(root,key):
     if not root or root.data == key:
         return "key found !"
 
     if root.data < key:
-        return find(root.right,key)
+        return findbinarysearch(root.right,key)
 
-    return find(root.left,key)
+    return findbinarysearch(root.left,key)
 
 
 
@@ -102,6 +102,42 @@ def insert(root, key):
     return root
 
 
+# Compute the height of a tree--the number of nodes
+# along the longest path from the root node down to
+# the farthest leaf node
+def height(node):
+    if node is None:
+        return 0
+    else:
+
+        # Compute the height of each subtree
+        lheight = height(node.left)
+        rheight = height(node.right)
+
+        # Use the larger one
+        if lheight > rheight:
+            return lheight + 1
+        else:
+            return rheight + 1
+
+
+# Function to  print level order traversal of tree
+def printLevelOrder(root):
+    h = height(root)
+    for i in range(1, h + 1):
+        printCurrentLevel(root, i)
+
+
+# Print nodes at a current level
+def printCurrentLevel(root, level):
+    if root is None:
+        return
+    if level == 1:
+        print(root.data, end=" ")
+    elif level > 1:
+        printCurrentLevel(root.left, level - 1)
+        printCurrentLevel(root.right, level - 1)
+
 def preorder(node):
     if not node:
         return None
@@ -115,6 +151,17 @@ arr = [1,2,3,4,5,6,7]
 root = ConvertsortedArrayToBST(arr)
 insert(root,5)
 deleteNode(root,5)
-print(find(root,2))
+print(findbinarysearch(root,2))
 print("Preorder traversal of sorted array to BST:")
 preorder(root)
+print("\n")
+print("level order traversal of BST:")
+printLevelOrder(root)
+
+
+# 1.Depth First Search or DFS
+#     Inorder Traversal
+#     Preorder Traversal
+#     Postorder Traversal
+
+# 2.Level Order Traversal or Breadth First Search or BFS
