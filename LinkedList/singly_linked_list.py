@@ -27,6 +27,7 @@ class LinkedList:
 
     # insert at particular index
     def insert_at(self,index,value):
+        print(f"after inserting item at {index} with value {value}")
         node = Node(value)
         i = 0
         current_node = self.head
@@ -49,7 +50,7 @@ class LinkedList:
 
     # update node
     def update_at(self, index, value):
-
+        print(f"after updating item at {index} with {value}")
         i = 0
         current_node = self.head
         while current_node:
@@ -62,6 +63,7 @@ class LinkedList:
 
     # remove at last index
     def pop(self):
+        print(" popping :")
         if self.head is None:
             return
 
@@ -73,6 +75,7 @@ class LinkedList:
 
     # remove at index
     def remove_at(self, index):
+        print(f"removing item at {index}")
         i = 0
         current_node = self.head
         if current_node is None:
@@ -91,6 +94,7 @@ class LinkedList:
         print("index not found")
 
     def sort(self):
+        print("after sort:")
         current_node = self.head
         max = None
         while current_node:
