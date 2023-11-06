@@ -37,7 +37,7 @@ if __name__ == '__main__':
     start = time.time()
 
     with concurrent.futures.ProcessPoolExecutor(max_workers=8) as executor:
-        result = executor.map(recur_factorial_m, [i for i in range(1, 5000)])
+        result = executor.map(recur_factorial_m, [i for i in range(1, 10000)])
 
     end = time.time()
 
@@ -46,16 +46,20 @@ if __name__ == '__main__':
     result = []
 
     start = time.time()
-    for i in range(1,5000):
+    for i in range(1,10000):
         result.append(recur_factorial_m(i))
 
     end = time.time()
 
     print("without multiprocessing - process took:", (end - start), "seconds")
 
-
+# for n = 5000
 # with multiprocessing - process took: 4.235995769500732 seconds
 # without multiprocessing - process took: 8.049002408981323 seconds
+
+# n = 10,000
+# with multiprocessing - process took: 19.73799991607666 seconds
+# without multiprocessing - process took: 65.79499959945679 seconds
 
 # hence we can see the difference in using multiprocessing
 
