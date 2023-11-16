@@ -1,5 +1,6 @@
 def permission(msg1):
     print(msg1)
+
     def wrap(fun):
         def wrapper(*args,**kwargs):
             id , name = args
