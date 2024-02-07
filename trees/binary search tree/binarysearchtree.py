@@ -85,9 +85,6 @@ def findbinarysearch(root,key):
 
     return findbinarysearch(root.left,key)
 
-
-
-
 def insert(root, key):
     if root is None:
         return Node(key)
@@ -125,18 +122,19 @@ def height(node):
 def printLevelOrder(root):
     h = height(root)
     for i in range(1, h + 1):
-        printCurrentLevel(root, i)
+        printcurrentlevel(root, i)
 
 
 # Print nodes at a current level
-def printCurrentLevel(root, level):
+def printcurrentlevel(root, level):
     if root is None:
         return
     if level == 1:
         print(root.data, end=" ")
     elif level > 1:
-        printCurrentLevel(root.left, level - 1)
-        printCurrentLevel(root.right, level - 1)
+        printcurrentlevel(root.left, level - 1)
+        printcurrentlevel(root.right, level - 1)
+
 
 def preorder(node):
     if not node:

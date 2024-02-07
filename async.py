@@ -10,8 +10,6 @@ async def main():
     await task2
 
 
-
-
 async def foo(text):
     print(text)
     await asyncio.sleep(1)
@@ -21,7 +19,7 @@ async def fetch_Data():
     print('start fetching')
     await asyncio.sleep(2)
     print('done fetching')
-    return {'data':1}
+    return {'data': 1}
 
 
 async def print_numbers():
@@ -30,6 +28,4 @@ async def print_numbers():
         await asyncio.sleep(0.25)
 
 
-
 asyncio.run(main())
-

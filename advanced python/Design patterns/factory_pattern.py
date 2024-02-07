@@ -37,6 +37,7 @@ class PersonFactory:
             return Student()
         if person_type == 'Teacher':
             return Teacher()
+
         print("invalid type")
         return -1
 

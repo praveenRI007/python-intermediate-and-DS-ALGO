@@ -3,6 +3,7 @@ class Node:
         self.data = data
         self.next = None
 
+
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -20,13 +21,13 @@ class LinkedList:
     # view all nodes data
     def view(self):
         current_node = self.head
-        while(current_node):
+        while current_node:
             print(current_node.data, end=" -> ")
             current_node = current_node.next
         print("\n")
 
     # insert at particular index
-    def insert_at(self,index,value):
+    def insert_at(self, index, value):
         print(f"after inserting item at {index} with value {value}")
         node = Node(value)
         i = 0
@@ -100,7 +101,7 @@ class LinkedList:
         while current_node:
             max = current_node.data
 
-    def insertionSort(self):
+    def insertionsort(self):
 
         # Initialize sorted linked list
         sorted = None
@@ -108,12 +109,12 @@ class LinkedList:
         # Traverse the given linked list and insert every
         # node to sorted
         current = self.head
-        while (current != None):
+        while current is not None:
             # Store next for next iteration
             next = current.next
 
             # insert current in sorted linked list
-            sorted = self.__sortedinsert(sorted,current)
+            sorted = self.__sortedinsert(sorted, current)
 
             # Update current
             current = next
@@ -123,12 +124,12 @@ class LinkedList:
 
     # function expects a pointer to head_ref as this can modify the
     # head of the input linked list (similar to push())
-    def __sortedinsert(self,head_ref, new_node):
+    def __sortedinsert(self, head_ref, new_node):
 
         current = None
 
         # Special case for the head end */
-        if (head_ref == None or (head_ref).data >= new_node.data):
+        if head_ref == None or (head_ref).data >= new_node.data:
 
             new_node.next = head_ref
             head_ref = new_node
@@ -145,8 +146,6 @@ class LinkedList:
             current.next = new_node
 
         return head_ref
-
-
 
 
 linkedlist = LinkedList()
@@ -170,8 +169,6 @@ linkedlist.remove_at(1)
 
 linkedlist.view()
 
-linkedlist.insertionSort()
+linkedlist.insertionsort()
 
 linkedlist.view()
-
-
